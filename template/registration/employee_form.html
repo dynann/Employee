@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Employee Form {% endblock title %}
+{% block body %}
+<div class="container">
+  <div class="col-md-10 offset-md-1 mt-5">
+    <div class="jumbotron">
+      <h1 class="display-4">Form</h1>
+      <hr class="my-4">
+      <p>Please fill the following form</p>
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form.full_name|as_crispy_field }}
+        {{ form.mobile|as_crispy_field }}
+        <div class="row">
+            <div class="col-md-4">
+                {{ form.emp_code|as_crispy_field }}
+            </div>
+          <div class="col-md-8">
+            {{ form.position|as_crispy_field }}
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock body %}
